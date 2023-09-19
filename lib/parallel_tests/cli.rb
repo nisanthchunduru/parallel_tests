@@ -103,6 +103,9 @@ module ParallelTests
           1
         end
 
+        failed_test_group_result = test_results.select { |result| result[:exit_status] != 0 }.first
+        puts failed_test_group_result[:stdout]
+
         exit exit_status
       end
     end
